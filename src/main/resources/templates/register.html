@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Создать аккаунт</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+    <h1>Создать аккаунт</h1>
+    <nav>
+        <ul>
+            <li><a th:href="@{/}">Главная</a></li>
+            <li><a th:href="@{/tracks}">Треки</a></li>
+            <li><a th:href="@{/about}">О нас</a></li>
+        </ul>
+    </nav>
+</header>
+
+<form action="#" th:action="@{/create_user}" method="post">
+    <label for="nickname">Никнейм:</label>
+    <input type="text" id="nickname" name="nickname" required>
+
+    <label for="login">Логин:</label>
+    <input type="text" id="login" name="login" required>
+
+    <label for="password">Пароль:</label>
+    <input type="password" id="password" name="password" required>
+
+    <button type="submit">Создать аккаунт</button>
+</form>
+
+<footer>
+    <p>&copy; 2023 Мой музыкальный сайт. Все права защищены.</p>
+</footer>
+</body>
+</html>
