@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Загрузка трека</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<header>
+    <h1>Моя музыкальная коллекция</h1>
+    <nav>
+        <ul>
+            <li><a th:href="@{/}">Главная</a></li>
+            <li><a th:href="@{/collection}">Мои треки</a></li>
+            <li><a th:href="@{/about}">О нас</a></li>
+            <li sec:authorize="!isAuthenticated()">
+                <a th:href="@{/register}" class="button">Создать аккаунт</a>
+            </li>
+            <li sec:authorize="isAuthenticated()">
+                <a th:href="@{/profile}" class="button">Мой профиль</a>
+            </li>
+            <li sec:authorize="isAuthenticated()">
+                <form th:action="@{/logout}" method="post">
+                    <button type="submit">Выйти</button>
+                </form>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="upload-section">
+        <h2>Загрузить новый трек</h2>
+
+        <form th:action="@{/upload}" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>Название трека:</label>
+                <input type="text" name="title" required>
+            </div>
+
+            <div class="form-group">
+                <label>Исполнитель:</label>
+                <input type="text" name="artist" required>
+            </div>
+
+            <div class="form-group">
+                <label>Аудиофайл:</label>
+                <input type="file" name="file" accept="audio/*" required>
+            </div>
+
+            <button type="submit" class="button primary">Загрузить</button>
+        </form>
+    </section>
+
+    <div th:if="${error}" class="alert error">
+        <p th:text="${error}"></p>
+    </div>
+
+    <div th:if="${success}" class="alert success">
+        <p th:text="${success}"></p>
+    </div>
+</main>
+<footer>
+    <p>&copy; 2023 Мой музыкальный сайт. Все права защищены.</p>
+</footer>
+</body>
+</html>

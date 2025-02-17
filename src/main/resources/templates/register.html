@@ -7,32 +7,35 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-<header>
-    <h1>Создать аккаунт</h1>
-    <nav>
-        <ul>
-            <li><a th:href="@{/}">Главная</a></li>
-            <li><a th:href="@{/tracks}">Треки</a></li>
-            <li><a th:href="@{/about}">О нас</a></li>
-        </ul>
-    </nav>
-</header>
 
-<form action="#" th:action="@{/create_user}" method="post">
-    <label for="nickname">Никнейм:</label>
-    <input type="text" id="nickname" name="nickname" required>
+<div th:replace="header :: header"></div>
 
-    <label for="login">Логин:</label>
-    <input type="text" id="login" name="login" required>
+<main>
+    <section class="registration-section">
+        <h2>Создать аккаунт</h2>
+        <form action="#" th:action="@{/register}" method="post" class="registration-form">
+            <div class="form-group">
+                <label for="nickname">Никнейм:</label>
+                <input type="text" id="nickname" name="nickname" required>
+            </div>
 
-    <label for="password">Пароль:</label>
-    <input type="password" id="password" name="password" required>
+            <div class="form-group">
+                <label for="login">Логин:</label>
+                <input type="text" id="login" name="login" required>
+            </div>
 
-    <button type="submit">Создать аккаунт</button>
-</form>
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
 
-<footer>
-    <p>&copy; 2023 Мой музыкальный сайт. Все права защищены.</p>
-</footer>
+            <button type="submit" class="button primary">Создать аккаунт</button>
+        </form>
+    </section>
+</main>
+
+<div th:replace="footer :: footer"></div>
+
+
 </body>
 </html>

@@ -1,0 +1,23 @@
+<header xmlns:sec="http://www.w3.org/1999/xhtml">
+    <h1>Новые песни</h1>
+    <nav>
+        <ul>
+            <li><a th:href="@{/}" class="nav-link">Главная</a></li>
+            <li sec:authorize="isAuthenticated()">
+                <a th:href="@{/collection}" class="nav-link">Мои треки</a></li>
+            <li><a th:href="@{/about}" class="nav-link">О нас</a></li>
+            <li sec:authorize="!isAuthenticated()">
+                <a th:href="@{/register}" class="button primary">Создать аккаунт</a>
+            </li>
+            <li sec:authorize="!isAuthenticated()"><a th:href="@{/login}" class="nav-link">Войти</a></li>
+            <li sec:authorize="isAuthenticated()">
+                <a th:href="@{/profile}" class="button">Мой профиль</a>
+            </li>
+            <li sec:authorize="isAuthenticated()">
+                <form th:action="@{/logout}" method="post">
+                    <button type="submit" class="button logout-btn">Выйти</button>
+                </form>
+            </li>
+        </ul>
+    </nav>
+</header>

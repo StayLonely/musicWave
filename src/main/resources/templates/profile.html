@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Мой профиль</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<!-- Вставка хедера -->
+<div th:replace="header :: header"></div>
+
+<main>
+    <section class="profile-section">
+        <h2>Профиль пользователя</h2>
+        <div class="profile-info">
+            <p><strong>Логин:</strong> <span th:text="${profile.login}"></span></p>
+            <p><strong>Никнейм:</strong> <span th:text="${profile.nickname}"></span></p>
+        </div>
+    </section>
+</main>
+
+<!-- Вставка футера -->
+<div th:replace="footer :: footer"></div>
+</body>
+</html>

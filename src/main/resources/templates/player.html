@@ -1,0 +1,15 @@
+<div class="audio-player" id="audio-player" th:fragment="audio-player">
+    <audio id="audio" controls style="display: none">
+        <source src="" type="audio/mpeg">
+        Ваш браузер не поддерживает аудиовоспроизведение.
+    </audio>
+    <div class="controls">
+        <button id="play-pause-button">Play</button>
+        <input type="range" id="volume-control" min="0" max="1" step="0.01" value="1">
+    </div>
+    <div class="progress">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+    <div id="current-time">0:00</div>
+    <div id="total-time">0:00</div>
+</div>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Вход</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<!-- Вставка хедера -->
+<div th:replace="header :: header"></div>
+
+<main>
+    <section class="login-section">
+        <h2>Вход</h2>
+
+        <!-- Сообщения об ошибках и успехах -->
+        <div th:if="${error}">
+            <p style="color: red;" th:text="${error}"></p>
+        </div>
+        <div th:if="${message}">
+            <p style="color: green;" th:text="${message}"></p>
+        </div>
+
+        <form action="/login" method="post" class="login-form">
+            <div class="form-group">
+                <label for="username">Логин:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="button primary">Войти</button>
+        </form>
+
+        <p>Нет аккаунта? <a href="/register">Зарегистрируйтесь</a></p>
+    </section>
+</main>
+
+<!-- Вставка футера -->
+<div th:replace="footer :: footer"></div>
+</body>
+</html>

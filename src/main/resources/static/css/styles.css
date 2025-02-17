@@ -2,17 +2,15 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f0f0;
+    background-color: #F4E8D0;
+    color: #333;
 }
 
 header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 15px 20px;
-}
-
-header h1 {
-    margin: 0;
+    background-color: #47313E;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
 }
 
 nav ul {
@@ -22,30 +20,394 @@ nav ul {
 
 nav ul li {
     display: inline;
-    margin-right: 20px;
+    margin: 0 10px;
 }
-
-nav ul li a {
-    color: white;
+.nav-link {
+    color: #fff;
     text-decoration: none;
+    font-weight: bold;
+    transition: color 0.2s;
 }
 
-main {
+.nav-link:hover {
+    color: #F4E8D0;
+}
+
+.button {
+    background-color: #F4E8D0;
+    border: none;
+    color: #47313E;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.button.primary {
+    background-color: #F4E8D0;
+    color: #47313E;
+}
+
+.button:hover {
+    background-color: #e6c47e; /* Темнее при наведении */
+}
+
+.collection-section {
     padding: 20px;
 }
 
-.track-list, .album-list {
+.track-list {
     display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.track-item {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    transition: transform 0.2s;
+}
+
+.track-item:hover {
+    transform: scale(1.02);
+}
+
+.track-info {
+    margin-bottom: 5px;
+}
+
+.track-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.like-btn, .play-btn {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #47313E;
+    color: #fff;
+    transition: background-color 0.2s;
+}
+
+.like-btn:hover, .play-btn:hover {
+    background-color: #4B35E6; /* Темнее при наведении */
+}
+
+.empty-collection {
+    text-align: center;
+    margin-top: 20px;
 }
 
 footer {
-    background-color: #4CAF50;
-    color: white;
     text-align: center;
-    padding: 10px 0;
-    position: absolute;
-    width: 100%;
+    padding: 10px;
+    background-color: #47313E;
+    color: #fff;
+    position: relative;
     bottom: 0;
+    width: 100%;
+}
+
+.logout-btn {
+    background-color: #d9534f; /* Кнопка выхода красного цвета */
+    color: white;
+}
+
+/* Общие стили для тела страницы */
+body {
+    background-color: #F4E8D0; /* Светлый фон */
+    color: #333; /* Темный текст */
+    font-family: Arial, sans-serif; /* Шрифт */
+    margin: 0;
+    padding: 0;
+}
+
+/* Добавление стилей для секции регистрации */
+.registration-section {
+    padding: 20px;
+    max-width: 400px;
+    margin: 50px auto; /* Центрирование секции */
+    background-color: #fff; /* Белый фон для формы */
+    border-radius: 5px; /* Закругленные углы */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень */
+}
+
+h2 {
+    text-align: center; /* Выравнивание заголовка по центру */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+.registration-form {
+    display: flex;
+    flex-direction: column; /* Вертикальное размещение элементов */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Отступ снизу для группировки */
+}
+
+label {
+    margin-bottom: 5px; /* Отступ снизу для меток */
+    font-weight: bold; /* Жирный текст для меток */
+}
+
+input {
+    padding: 10px; /* Внутренние отступы */
+    border: 1px solid #ccc; /* Серый цвет рамки */
+    border-radius: 5px; /* Закругленные углы */
+    transition: border-color 0.2s; /* Плавный переход при фокусе */
+}
+
+input:focus {
+    border-color: #47313E; /* Цвет рамки при фокусе */
+}
+
+button {
+    padding: 10px; /* Внутренние отступы */
+    border: none; /* Без рамки */
+    border-radius: 5px; /* Закругленные углы */
+    cursor: pointer; /* Курсор при наведении */
+    background-color: #47313E; /* Темный цвет кнопки */
+    color: #F4E8D0; /* Светлый цвет текста на кнопке */
+    font-weight: bold; /* Жирный текст для кнопки */
+    transition: background-color 0.2s; /* Плавный переход для фона кнопки */
+}
+
+button:hover {
+    background-color: #3e2c33; /* Темнее при наведении */
+}
+
+/* Стили для секции входа */
+.login-section {
+    padding: 20px;
+    max-width: 400px;
+    margin: 50px auto; /* Центрирование секции */
+    background-color: #fff; /* Белый фон для формы входа */
+    border-radius: 5px; /* Закругленные углы */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень */
+}
+
+h2 {
+    text-align: center; /* Выравнивание заголовка по центру */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column; /* Вертикальное размещение элементов */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Отступ снизу для группировки */
+}
+
+label {
+    margin-bottom: 5px; /* Отступ снизу для меток */
+    font-weight: bold; /* Жирный текст для меток */
+}
+
+input {
+    padding: 10px; /* Внутренние отступы */
+    border: 1px solid #ccc; /* Серый цвет рамки */
+    border-radius: 5px; /* Закругленные углы */
+    transition: border-color 0.2s; /* Плавный переход при фокусе */
+}
+
+input:focus {
+    border-color: #47313E; /* Цвет рамки при фокусе */
+}
+
+button {
+    padding: 10px; /* Внутренние отступы */
+    border: none; /* Без рамки */
+    border-radius: 5px; /* Закругленные углы */
+    cursor: pointer; /* Курсор при наведении */
+    background-color: #47313E; /* Темный цвет кнопки */
+    color: #F4E8D0; /* Светлый цвет текста на кнопке */
+    font-weight: bold; /* Жирный текст для кнопки */
+    transition: background-color 0.2s; /* Плавный переход для фона кнопки */
+}
+
+button:hover {
+    background-color: #3e2c33; /* Темнее при наведении */
+}
+
+/* Стили для сообщений об ошибках */
+p {
+    text-align: center; /* Выравнивание текста по центру */
+}
+
+.error {
+    color: red; /* Красный текст для ошибок */
+}
+
+.success {
+    color: green; /* Зеленый текст для успехов */
+}
+
+/* Стили для секции профиля */
+.profile-section {
+    padding: 20px;
+    max-width: 600px; /* Ширина секции */
+    margin: 50px auto; /* Центрирование секции */
+    background-color: #F4E8D0; /* Светлый фон для профиля */
+    border-radius: 5px; /* Закругленные углы */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень */
+}
+
+.profile-info {
+    margin-top: 20px; /* Отступ сверху для информации профиля */
+}
+
+.profile-info p {
+    margin: 10px 0; /* Отступ для пунктов информации */
+    font-size: 16px; /* Размер шрифта */
+}
+
+/* Улучшение заголовков */
+h2 {
+    text-align: center; /* Выравнивание заголовка по центру */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+/* Общие стили для кнопок */
+button {
+    padding: 10px; /* Внутренние отступы */
+    border: none; /* Без рамки */
+    border-radius: 5px; /* Закругленные углы */
+    cursor: pointer; /* Курсор при наведении */
+    background-color: #47313E; /* Темный цвет кнопки */
+    color: #F4E8D0; /* Светлый цвет текста на кнопке */
+    font-weight: bold; /* Жирный текст для кнопки */
+    transition: background-color 0.2s; /* Плавный переход для фона кнопки */
+}
+
+button:hover {
+    background-color: #3e2c33; /* Темнее при наведении */
+}
+
+/* Стили для ссылок в навигации */
+nav ul {
+    list-style-type: none; /* Убираем маркеры */
+    padding: 0; /* Убираем отступы */
+}
+
+nav li {
+    display: inline; /* В ряд */
+    margin-right: 15px; /* Отступ между пунктами */
+}
+
+nav a {
+    text-decoration: none; /* Убираем подчеркивание */
+    color: #47313E; /* Цвет текста ссылок */
+}
+
+/* Стили для секции коллекции */
+.collection-section {
+    padding: 20px;
+    max-width: 800px; /* Ширина секции */
+    margin: 60px auto; /* Центрирование секции */
+    background-color: #F4E8D0; /* Светлый фон секции */
+    border-radius: 5px; /* Закругленные углы */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень */
+}
+
+.collection-header {
+    display: flex;
+    justify-content: space-between; /* Разделение заголовка и кнопки */
+    align-items: center; /* Вертикальное выравнивание по центру */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+.empty-collection {
+    text-align: center; /* Центрирование текста */
+    margin-top: 20px; /* Отступ сверху */
+}
+
+.track-list {
+    margin-top: 20px; /* Отступ сверху для списка треков */
+}
+
+.track-item {
+    display: flex; /* Используем flexbox для выравнивания элементов */
+    justify-content: space-between; /* Разделение информации и действий */
+    padding: 10px;
+    border: 1px solid #ccc; /* Рамка для трека */
+    border-radius: 5px; /* Закругленные углы */
+    margin-bottom: 10px; /* Отступ между треками */
+    background-color: #fff; /* Белый фон для элементов трека */
+    transition: background-color 0.3s; /* Плавный переход для фона */
+}
+
+.track-item:hover {
+    background-color: #f0f0f0; /* Цвет фона при наведении */
+}
+
+.track-info h3 {
+    margin: 0; /* Убираем отступы у заголовка трека */
+}
+
+.track-actions button {
+    background: none; /* Без фона */
+    border: none; /* Без рамки */
+    cursor: pointer; /* Курсор при наведении */
+    font-size: 20px; /* Размер кнопок для действий */
+}
+
+/* Стили для аудиоплеера */
+.audio-player {
+    margin-top: 30px; /* Отступ сверху для аудиоплеера */
+    text-align: center; /* Центрирование элементов */
+}
+
+.controls {
+    display: flex; /* Используем flexbox для кнопок */
+    justify-content: center; /* Центрирование кнопок */
+    align-items: center; /* Вертикальное выравнивание */
+}
+
+.progress {
+    width: 100%;
+    background-color: #eee; /* Фоновый цвет для прогресса */
+    border-radius: 10px;
+    margin: 10px 0; /* Отступ сверху и снизу */
+    height: 25px; /* Высота прогресс-бара */
+}
+
+.progress-bar {
+    height: 100%; /* Высота прогресс-бара */
+    background-color: #47313E; /* Цвет заполнения прогресса */
+    width: 0%; /* Начальный размер прогресса */
+}
+
+/* Общие стили для кнопок */
+button {
+    padding: 10px; /* Внутренние отступы для кнопок */
+    border-radius: 5px; /* Закругленные углы */
+    cursor: pointer; /* Курсор при наведении */
+    transition: background-color 0.2s; /* Плавный переход для фона кнопки */
+}
+
+button:hover {
+    background-color: #3e2c33; /* Темнее при наведении */
+}
+
+/* Стили для ссылок в навигации */
+nav ul {
+    list-style-type: none; /* Убираем маркеры */
+    padding: 0; /* Убираем отступы */
+}
+
+nav li {
+    display: inline; /* В ряд */
+    margin-right: 15px; /* Отступ между пунктами */
+}
+
+nav a {
+    text-decoration: none; /* Убираем подчеркивание */
+    color: #47313E; /* Цвет текста ссылок */
 }

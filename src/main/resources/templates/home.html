@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя коллекция</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div th:replace="header :: header"></div>
+
+
+<main>
+    <div class="collection-header">
+        <h2>Новые песни</h2>
+        <a th:href="@{/upload}" class="button">Добавить трек</a>
+    </div>
+
+    <section class="collection-section">
+        <!-- Список треков -->
+        <div class="track-list">
+            <div th:each="track : ${allTracks}" class="track-item">
+                <div class="track-info">
+                    <h3 th:text="${track.title}">Track Title</h3>
+                    <p th:text="${track.artist}">Artist Name</p>
+                    <p th:text="${track.filePath}" id="data-file-path" style="display: none;"></p>
+
+                </div>
+                <div class="track-actions">
+                    <button class="like-btn"
+                            th:classappend="${currentUser != null && #lists.contains(currentUser.favoriteTracks, track)} ? 'liked' : ''">♥</button>
+                    <button class="play-btn">▶</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Блок с сообщением о пустой коллекции -->
+        <div th:if="${#lists.isEmpty(tracks)}" class="empty-collection">
+            <p>В вашей коллекции пока нет треков</p>
+            <img src="/images/empty-state.svg" alt="Пустая коллекция">
+            <a th:href="@{/upload}" class="button primary">Добавить первый трек</a>
+        </div>
+
+        <div th:insert="player :: audio-player "></div>
+
+    </section>
+</main>
+
+<div th:replace="footer :: footer"> </div>
+<script src="/js/player.js"></script>
+</body>
+</html>

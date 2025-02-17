@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя коллекция</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<div th:replace="header :: header"></div>
+
+<main>
+    <section class="collection-section">
+        <div class="collection-header">
+            <h2>Мои треки</h2>
+            <a th:href="@{/upload}" class="button">Добавить трек</a>
+        </div>
+
+        <!-- Блок с сообщением о пустой коллекции -->
+        <div th:if="${#lists.isEmpty(tracks)}" class="empty-collection">
+            <p>В вашей коллекции пока нет треков</p>
+            <img src="/images/empty-state.svg" alt="Пустая коллекция">
+            <a th:href="@{/upload}" class="button primary">Добавить первый трек</a>
+        </div>
+
+        <!-- Список треков -->
+        <div class="track-list">
+            <div th:each="track : ${tracks}" class="track-item">
+                <div class="track-info">
+                    <h3 th:text="${track.title}"></h3>
+                    <p th:text="${track.artist}"></p>
+                    <p th:text="${track.filePath}" id="data-file-path" style="display: none;"></p>
+                </div>
+                <div class="track-actions">
+                    <button class="like-btn"
+                            th:classappend="${currentUser != null && #lists.contains(currentUser.favoriteTracks, track)} ? 'liked' : ''">♥</button>
+                    <button class="play-btn" aria-label="Play track">▶</button>
+                </div>
+            </div>
+        </div>
+
+        <div th:insert="player :: audio-player "></div>
+
+    </section>
+
+
+</main>
+
+
+<div th:replace="footer :: footer"></div>
+<script src="/js/player.js"></script>
+
+</body>
+
+
+
+</html>
